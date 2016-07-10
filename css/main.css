@@ -23,7 +23,7 @@ input {
   border-radius: 6px;
 }
 
-}
+
 
   input[placeholder]  {
     color: rgba(0, 0, 0, 1);}
@@ -55,7 +55,8 @@ ul li {
 #overlay {
   background:rgba(0,0,0,0.7);
   width:100%;
-  margin-left: height:100vh;
+
+  height:100vh;
   position:absolute;
   top:0;
   left:0;
