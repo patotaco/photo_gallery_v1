@@ -6,6 +6,7 @@
     <title>Photo Gallery</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="js/magnif/magnific-popup.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -13,14 +14,14 @@
     <input type="search" id="search" name="search" placeholder="Search">
   </header>
 
- 
-    <ul class="photogallery" id="gallery">
-       <li> <a href="images/01.jpg"><img src="images/Thumbnails/01.jpg" title="Hay Bales" alt="I love hay bales. Took this snap on a drive through the countryside past some straw fields."></a></li>
 
-       <li> <a href="images/02.jpg"><img src="images/Thumbnails/02.jpg" title="Lake" alt="The lake was so calm today. We had a great view of the snow on the mountains from here."></a></li>
+    <ul class="popup-gallery photogallery parent-container" id="gallery">
+       <li> <a href="images/01.jpg"><img src="images/Thumbnails/01.jpg" data-mfp-src="image-for-popup.jpg" title="Hay Bales" alt="I love hay bales. Took this snap on a drive through the countryside past some straw fields."></a></li>
 
-       <li> <a href="images/03.jpg"><img src="images/Thumbnails/03.jpg" title="Canyon" alt="I hiked to the top of the mountain and got this picture of the canyon and trees below."></a></li>
-       
+       <li> <a href="images/02.jpg"><img src="images/Thumbnails/02.jpg" data-mfp-src="image-for-popup.jpg" title="Lake" alt="The lake was so calm today. We had a great view of the snow on the mountains from here."></a></li>
+
+       <li> <a href="images/03.jpg"><img src="images/Thumbnails/03.jpg" data-mfp-src="image-for-popup.jpg" title="Canyon" alt="I hiked to the top of the mountain and got this picture of the canyon and trees below."></a></li>
+
        <li> <a href="images/04.jpg"><img src="images/Thumbnails/04.jpg" title="Iceberg" alt="It was amazing to see an iceberg up close, it was so cold but didn’t snow today."></a></li>
 
        <li> <a href="images/05.jpg"><img src="images/Thumbnails/05.jpg" title="Desert" alt="The red cliffs were beautiful. It was really hot in the desert but we did a lot of walking through the canyons."></a></li>
@@ -39,7 +40,7 @@
 
         <li><a href="images/12.jpg"><img src="images/Thumbnails/12.jpg" title="Bluebells" alt="I walked through this meadow of bluebells and got a good view of the snow on the mountain before the fog came in."></a></li>
 
-        <!-- <a href="images/13.jpg"><img src="images/Thumbnails/13.jpg" title="Travel Love" alt="Top 10 of the most breathtaking places on this planet that you need to visit."></a> 
+        <!-- <a href="images/13.jpg"><img src="images/Thumbnails/13.jpg" title="Travel Love" alt="Top 10 of the most breathtaking places on this planet that you need to visit."></a>
 
         <a href="images/14.jpg"><img src="images/Thumbnails/14.jpg" title="Hyper Travel" alt="This film is a HDR hyperlapse postcard that will take you to a journey through Georgia."></a>
 
@@ -49,6 +50,34 @@
 <div id="overlay"></div>
 
   <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
-  <script src="js/app.js"></script>
+  <script>
+  $(document).ready(function() {
+$('.image-link').magnificPopup({type:'image'});
+});
+  </script>
+  <script src="js/magnif/jquery.magnific-popup.js"></script>
+  <script>
+  $(document).ready(function() {
+$('.popup-gallery').magnificPopup({
+  delegate: 'a',
+  type: 'image',
+  tLoading: 'Loading image #%curr%...',
+  mainClass: 'mfp-img-mobile',
+  gallery: {
+    enabled: true,
+    navigateByImgClick: true,
+    preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+  },
+  image: {
+
+    titleSrc: function(item) {
+      return item.el.attr('alt') + '<small>by Marsel Van Oosten</small>';
+    }
+  }
+});
+});
+  </script>
+
+  <!-- <script src="js/app.js"></script> -->
 </body>
 </html>
