@@ -35,7 +35,7 @@ input {
 .photogallery {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     list-style: none;
     max-width: 980px;
